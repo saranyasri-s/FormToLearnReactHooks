@@ -1,0 +1,12 @@
+.Welcome {
+  width: 60%;
+
+  margin: 3rem auto;
+  border: 0.1px solid black;
+  box-shadow: 2px 2px 2px 2px grey;
+  border-radius: 5px;
+}
+.Welcome h3 {
+  margin: 1rem;
+  text-align: center;
+}

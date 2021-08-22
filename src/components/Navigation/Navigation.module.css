@@ -1,0 +1,15 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+.navigation a {
+  padding: 0 1rem;
+}
+.navigation button {
+  display: block;
+  padding: 0.3rem 1rem;
+  background-color: #d935c2;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}

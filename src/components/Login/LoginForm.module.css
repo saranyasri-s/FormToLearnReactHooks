@@ -7,11 +7,38 @@
 
   padding: 1rem;
 }
-.LoginForm button {
-  margin: 1rem 0;
+.LoginForm div {
+  display: flex;
+  margin: 0.5rem;
 }
-.LoginForm button,
-.LoginForm label,
-.Labelform input {
+.LoginForm div label,
+.LoginForm div input {
+  flex: 1;
+}
+.LoginForm .button {
   display: block;
+}
+.button {
+  background-color: brown;
+  width: 20%;
+  margin: 1rem auto;
+  border: 2px solid brown;
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: white;
+}
+.button:hover {
+  color: brown;
+  background-color: white;
+
+  border: 2px solid brown;
+}
+.button.invalid {
+  color: rgb(241, 232, 232);
+  background-color: grey;
+  border: 2px solid grey;
+}
+.LoginForm div label.invalid,
+.LoginForm div input.invalid {
+  background-color: salmon;
 }

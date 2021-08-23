@@ -6,8 +6,8 @@ function Navigation(props) {
   };
   return (
     <div className={classes.navigation}>
-      <a>fgujf</a>
-      <a>dhfhdfh</a>
+      <a href="#">fgujf</a>
+      <a href="#">dhfhdfh</a>
       <button onClick={logOutHandler}>Log Out</button>
     </div>
   );

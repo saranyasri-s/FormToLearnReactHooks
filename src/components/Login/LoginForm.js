@@ -3,11 +3,24 @@ import classes from "./LoginForm.module.css";
 function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
+
   const addEmailHandler = (e) => {
     setEmail(e.target.value);
+    if (e.target.value.includes("@")) {
+      setIsEmailValid(true);
+    } else {
+      setIsEmailValid(false);
+    }
   };
   const addPasswordHandler = (e) => {
     setPassword(e.target.value);
+    if (e.target.value.trim().length > 6) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
   };
   const loginSubmitHandler = (e) => {
     e.preventDefault();
@@ -17,13 +30,47 @@ function LoginForm(props) {
     props.onLogin();
     console.log(email, password);
   };
+  const emailBlurIsValidHandler = () => {
+    if (email.includes("@")) {
+      setIsEmailValid(true);
+    } else {
+      setIsEmailValid(false);
+    }
+  };
+  const passwordBlurHandler = () => {
+    if (password.trim().length > 6) {
+      setIsPasswordValid(true);
+    } else {
+      setIsPasswordValid(false);
+    }
+  };
   return (
     <form onSubmit={loginSubmitHandler} className={classes.LoginForm}>
-      <label>Email</label>
-      <input onChange={addEmailHandler} type="email"></input>
-      <label>Password</label>
-      <input onChange={addPasswordHandler} type="password"></input>
-      <button type="submit"> Login</button>
+      <div>
+        <label>Email</label>
+        <input
+          className={`${!isEmailValid ? classes["invalid"] : null}`}
+          onChange={addEmailHandler}
+          type="email"
+          onBlur={emailBlurIsValidHandler}
+        ></input>
+      </div>
+      <div>
+        <label>Password</label>
+        <input
+          className={`${!isPasswordValid ? classes["invalid"] : null}`}
+          onChange={addPasswordHandler}
+          type="password"
+        ></input>
+      </div>
+      <button
+        className={`${classes["button"]} ${
+          !isEmailValid || !isPasswordValid ? classes["invalid"] : null
+        }`}
+        type="submit"
+      >
+        Login
+      </button>
     </form>
   );
 }

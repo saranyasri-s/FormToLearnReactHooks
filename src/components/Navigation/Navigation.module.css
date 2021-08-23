@@ -4,7 +4,13 @@
 }
 .navigation a {
   padding: 0 1rem;
+  color: white;
+  text-decoration: none;
 }
+.navigation a:hover {
+  text-decoration: underline;
+}
+
 .navigation button {
   display: block;
   padding: 0.3rem 1rem;

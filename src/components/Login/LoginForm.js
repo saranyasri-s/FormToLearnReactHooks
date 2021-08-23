@@ -27,6 +27,9 @@ function LoginForm(props) {
     if (email.trim().length === 0 || password.trim().length === 0) {
       return;
     }
+    if (!isEmailValid || !isPasswordValid) {
+      return;
+    }
     props.onLogin();
     console.log(email, password);
   };
@@ -61,6 +64,7 @@ function LoginForm(props) {
           className={`${!isPasswordValid ? classes["invalid"] : null}`}
           onChange={addPasswordHandler}
           type="password"
+          onBlur={passwordBlurHandler}
         ></input>
       </div>
       <button

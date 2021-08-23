@@ -19,19 +19,19 @@
   display: block;
 }
 .button {
-  background-color: brown;
+  background-color: rgb(88 49 228);
   width: 20%;
   margin: 1rem auto;
-  border: 2px solid brown;
-  padding: 0.5rem;
+  border: 2px solid rgb(88 49 228);
   border-radius: 6px;
   color: white;
+  padding: 0.3rem 1rem;
 }
 .button:hover {
-  color: brown;
+  color: rgb(88 49 228);
   background-color: white;
 
-  border: 2px solid brown;
+  border: 2px solid rgb(88 49 228);
 }
 .button.invalid {
   color: rgb(241, 232, 232);

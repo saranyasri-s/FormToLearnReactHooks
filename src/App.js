@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import AuthContext from "../src/store/auth-context";
 import Header from "./components/Header/Header";
 import LoginForm from "./components/Login/LoginForm";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
@@ -20,13 +20,19 @@ function App() {
     setIsLoggedIn(false);
   };
   return (
-    <>
-      <Header onLogOut={logOutHandler}></Header>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogin: LoginHandler,
+        onLogOut: logOutHandler,
+      }}
+    >
+      <Header></Header>
       <main>
-        {!isLoggedIn && <LoginForm onLogin={LoginHandler}></LoginForm>}
+        {!isLoggedIn && <LoginForm></LoginForm>}
         {isLoggedIn && <WelcomePage></WelcomePage>}
       </main>
-    </>
+    </AuthContext.Provider>
   );
 }
 

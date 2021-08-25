@@ -5,7 +5,7 @@ function Header(props) {
   return (
     <div className={classes.Header}>
       <h3>A Typical Page</h3>
-      <Navigation onLogOut={props.onLogOut}> </Navigation>
+      <Navigation> </Navigation>
     </div>
   );
 }

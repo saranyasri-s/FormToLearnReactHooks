@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../store/auth-context";
 import classes from "./LoginForm.module.css";
 function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
-
+  const ctx = useContext(AuthContext);
   const addEmailHandler = (e) => {
     setEmail(e.target.value);
     if (e.target.value.includes("@")) {
@@ -30,7 +31,7 @@ function LoginForm(props) {
     if (!isEmailValid || !isPasswordValid) {
       return;
     }
-    props.onLogin();
+    ctx.onLogin();
     console.log(email, password);
   };
   const emailBlurIsValidHandler = () => {
